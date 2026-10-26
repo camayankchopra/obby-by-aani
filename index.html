@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mega Obby — 50 Stages</title>
+<meta name="description" content="A colorful Roblox-style obby with 50 stages and 5 difficulties.">
+<meta property="og:title" content="Mega Obby — 50 Stages">
+<meta property="og:description" content="Jump through 50 colorful stages from Easy to Insane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+<style type="text/tailwindcss">
+:root {
+  --sky: oklch(82% .1 230);
+  --hud: oklch(20% .03 260 / .7);
+  --hud-foreground: oklch(99% 0 0);
+  --jump: oklch(72% .2 145);
+  --background: oklch(100% 0 0);
+  --foreground: oklch(12.9% .042 264.695);
+  --destructive: oklch(57.7% .245 27.325);
+  --destructive-foreground: oklch(98.4% .003 247.858);
+  --radius: .625rem;
+}
+@theme inline {
+  --color-sky: var(--sky);
+  --color-hud: var(--hud);
+  --color-hud-foreground: var(--hud-foreground);
+  --color-jump: var(--jump);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+}
+html, body, #root { height: 100%; margin: 0; }
+body { background-color: var(--background); color: var(--foreground); overscroll-behavior: none; }
+.font-game { font-family: Fredoka, system-ui, sans-serif; }
+@layer components {
+  .hud-chip { @apply px-3 py-2 font-semibold shadow-lg; border-radius: calc(var(--radius) + 4px); border: 2px solid transparent; background-color: var(--hud); color: var(--hud-foreground); }
+  .hud-btn { @apply px-3 py-1.5 text-sm font-semibold shadow; border-radius: var(--radius); background-color: var(--hud); color: var(--hud-foreground); }
+  .ctrl-jump { @apply flex h-24 w-24 items-center justify-center rounded-full border-4 text-lg font-bold shadow-xl; border-color: var(--hud-foreground); background-color: var(--jump); color: var(--hud-foreground); }
+  .ctrl-joy-base { @apply relative flex h-32 w-32 items-center justify-center rounded-full border-4 shadow-xl; border-color: var(--hud-foreground); background-color: var(--hud); }
+  .ctrl-joy-knob { @apply pointer-events-none absolute h-14 w-14 rounded-full shadow-md; background-color: color-mix(in oklab, var(--hud-foreground) 80%, transparent); }
+}
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.1.0",
+    "react/jsx-runtime": "https://esm.sh/react@19.1.0/jsx-runtime",
+    "react-dom/client": "https://esm.sh/react-dom@19.1.0/client?deps=react@19.1.0",
+    "three": "https://esm.sh/three@0.170.0",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@9.1.2?deps=react@19.1.0,react-dom@19.1.0,three@0.170.0"
+  }
+}
+</script>
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="game.js"></script>
+</body>
+</html>
